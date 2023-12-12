@@ -44,6 +44,27 @@ The main dependencies for this app are:
 }
 ```
 
+## Unit Testing
+
+This step executes unit tests using the "npm test" command based on the test script configured in package.json. In this case, the test will be running jest version 29.7.0.This workflow is designed to execute unit tests for a Node.js application. It is triggered after the successful completion of the "pre-deploy" job.
+
+```bash
+unit-testing:
+    runs-on: ubuntu-latest
+    needs: pre-deploy
+    name: Unit Testing
+    steps:
+       # Checkout the latest code from the repository.
+      - name: Checkout repo code
+        uses: actions/checkout@v3
+       # Install the required npm dependencies for the application
+      - name: Install dependencies
+        run: npm install
+      # Execute unit tests using npm test
+      - name: Run unit tests
+        run: npm test
+```
+
 ## Containerization 
 
 This Node.js application using the latest version of Node.js is containerized using and Dockerfile sets up as below- a working directory, installs the application dependencies, copies the application code, exposes port 3000, and starts the application.
