@@ -1,7 +1,7 @@
 # Output
 
 Wadapdoge is a simple chat server application that uses Express and Socket.io. 
-![Alt text](image-2.png)
+![Alt text](image-3.png)
 
 
 ## Package and Dependencies
