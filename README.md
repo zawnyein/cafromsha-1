@@ -92,3 +92,29 @@ EXPOSE 3000
 CMD ["npm", "start"]
 
 ```
+##Secrets & Credential Management
+
+Before starting, set up AWS credentials by using OpenID Connect (OIDC) authentication which are stored in the Github Actions Secrets. 
+
+Go to ROLE under IAM in AWS console and create a role. Save the ARN in github repository secret. 
+![Alt text](image-5.png)
+
+Under the Trust Relationships tab, Add team members/collaborator's github account. Make sure to use wildcard /* behind repo's address.
+![Alt text](image-6.png)
+
+The AWS credential code in workflow is as below,
+
+```bash
+- name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.IAM_ROLE}}
+          aws-region: us-east-1
+```
+
+##Create AWS Resources using Terraform
+
+Refer to below link for Terraform files for different environments.
+
+https://github.com/Mha47/c3g2-capstone-rev1/tree/dev/environments
+
