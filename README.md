@@ -92,7 +92,7 @@ EXPOSE 3000
 CMD ["npm", "start"]
 
 ```
-##Secrets & Credential Management
+## Secrets & Credential Management
 
 Before starting, set up AWS credentials by using OpenID Connect (OIDC) authentication which are stored in the Github Actions Secrets. 
 
@@ -112,7 +112,7 @@ The AWS credential code in workflow is as below,
           aws-region: us-east-1
 ```
 
-##Create AWS Resources using Terraform
+## Create AWS Resources using Terraform
 
 Refer to below link for Terraform files for different environments.
 
